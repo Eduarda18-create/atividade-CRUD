@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h1>{% if materia%}Editar Matéria{% else %}Adicionar Matéria{% endif %}</h1>
+<form method="post">
+    <label for="nome">Nome da Matéria:</label>
+    <input type="text" id="nome" name="nome" value="{{ materia.get_nome() if materia else '' }}" required>
+
+    <label for="professor">Professor:</label>
+    <input type="text" id="professor" name="professor" value="{{ materia.get_professor() if materia else '' }}" required>
+
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" name="descricao" required>{{ materia.get_descricao() if materia else '' }}</textarea>
+
+    <button type="submit">{% if materia %}Atualizar{% else %}Adicionar{% endif %}</button>
+    <a href="{{ url_for('list_materias') }}">Voltar</a>
+</form>
+{% endblock %}

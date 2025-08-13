@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{% if prova %}Editar Prova{% else %}Adicionar Prova{% endif %}</h1>
+
+<form method="post">
+    <label for="materia_id">Matéria:</label>
+    <select id="materia_id" name="materia_id" required>
+        {% for materia in materias %}
+        <option value="{{ materia.get_id() }}" {% if prova and prova.get_materia_id()|int == materia.get_id()|int %}selected{% endif %}>
+            {{ materia.get_nome() }}
+        </option>
+        {% endfor %}
+    </select>
+
+    <label for="data">Data:</label>
+    <input type="date" id="data" name="data" value="{{ prova.get_data() if prova else '' }}" required>
+
+    <label for="dificuldade">Dificuldade:</label>
+    <select id="dificuldade" name="peso" required>
+        <option value="Fácil" {% if prova and prova.get_peso() == "Fácil" %}selected{% endif %}>Fácil</option>
+        <option value="Tenho que estudar" {% if prova and prova.get_peso() == "Tenho que estudar" %}selected{% endif %}>Tenho que estudar</option>
+        <option value="Difícil" {% if prova and prova.get_peso() == "Difícil" %}selected{% endif %}>Difícil</option>
+    </select>
+
+    <button type="submit">{% if prova %}Atualizar{% else %}Adicionar{% endif %}</button>
+</form>
+<a href="{{ url_for('list_provas') }}">Voltar</a>
+{% endblock %}

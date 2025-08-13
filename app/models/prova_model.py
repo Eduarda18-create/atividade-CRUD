@@ -16,5 +16,16 @@ class ProvaModel:
     
     def get_materia_id(self):
         return self.__materia_id
+
+    def set_data(self, data):
+        self.__data = data
+        
+    def set_peso(self, peso):
+        self.__peso = peso
+    
+    def set_materia_id(self, materia_id):
+        self.__materia_id = materia_id
+    
+    
     
     

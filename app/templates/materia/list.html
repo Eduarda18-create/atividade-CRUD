@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Lista de Matérias</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Nome da Matéria
+            </th>
+            <th>
+                Professor 
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Ações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for materia in materias %}
+            <tr>
+                <td>{{ materia.get_nome() }}</td>
+                <td>{{ materia.get_professor() }}</td>
+                <td>{{ materia.get_descricao() }}</td>
+                <td>
+                    <a href="{{ url_for('edit_materia', id=materia.get_id()) }}">Editar</a>
+                    <a href="{{ url_for('delete_materia', id=materia.get_id()) }}">Excluir</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+    <a href="{{ url_for('create_materia') }}">Adicionar Matéria</a>
+
+<p>
+    <a href="{{ url_for('list_provas') }}">Ver Provas</a>
+</p>
+
+{% endblock %}
