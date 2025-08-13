@@ -32,16 +32,16 @@ def create_materia():
 def edit_materia(id):
     materia = materia_service.get_materia_by_id(id)
     if request.method == 'POST':
-        materia.set_nome(request.form['nome'])
-        materia.set_professor(request.form['professor'])
-        materia.set_descricao(request.form['descricao'])
-        try:
-            materia_service.update_materia(materia)
-            return redirect(url_for('list_materias'))
-        except ValueError as e:
-            return render_template('materia/form.html', error=str(e), materia=materia)
+        materia_service.update_materia(MateriaModel(
+            id=materia.get_id(),
+            nome=request.form['nome'],
+            professor=request.form['professor'],
+            descricao=request.form['descricao']
+        ))
+        return redirect(url_for('list_materias'))
     return render_template('materia/form.html', materia=materia)
-
+        
+        
 @app.route('/materias/excluir/<int:id>')
 def delete_materia(id):
     materia_service.delete_materia(id)

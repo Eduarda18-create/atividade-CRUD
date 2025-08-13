@@ -15,6 +15,7 @@
     <textarea id="descricao" name="descricao" required>{{ materia.get_descricao() if materia else '' }}</textarea>
 
     <button type="submit">{% if materia %}Atualizar{% else %}Adicionar{% endif %}</button>
-    <a href="{{ url_for('list_materias') }}">Voltar</a>
+
 </form>
+    <a href="{{ url_for('list_materias') }}">Voltar</a>
 {% endblock %}

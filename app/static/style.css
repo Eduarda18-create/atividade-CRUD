@@ -1,0 +1,109 @@
+/* ==== Estilo Global ==== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f6fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Container centralizado */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* ==== Títulos ==== */
+h1, h2, h3 {
+    text-align: center;
+    color: #2d3436;
+}
+
+/* ==== Tabelas ==== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #2d3436;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f1f2f6;
+}
+
+tr:hover {
+    background-color: #dfe6e9;
+}
+
+/* ==== Botões ==== */
+.btn {
+    display: inline-block;
+    padding: 8px 14px;
+    background-color: #0984e3;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background-color: #74b9ff;
+}
+
+.btn-danger {
+    background-color: #d63031;
+}
+
+.btn-danger:hover {
+    background-color: #ff7675;
+}
+
+/* ==== Formulários ==== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+input, select, textarea {
+    padding: 8px;
+    border: 1px solid #b2bec3;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #0984e3;
+    box-shadow: 0 0 5px rgba(9, 132, 227, 0.4);
+}
+
+/* ==== Mensagem de erro ==== */
+.error {
+    background-color: #ffe6e6;
+    color: #d63031;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
